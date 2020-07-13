@@ -10,6 +10,9 @@ Sequel.migration do
       DateTime :execution_date, null: false
       DateTime :created_at, null: false
       index [:pact_version_id, :number], unique: true
+      String :logs
+      String :logsID
+      String :revision
     end
   end
 end
