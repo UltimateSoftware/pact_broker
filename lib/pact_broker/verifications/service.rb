@@ -56,6 +56,8 @@ module PactBroker
 
       def find_by_revision_and_pact_version revision, pact_version_id
         PactBroker::Domain::Verification.where(revision: revision, pact_version_id: pact_version_id)
+      def find_by_logs_id id
+        PactBroker::Domain::Verification.find(logsID: id)
       end
 
       def find_latest_for_pact(pact)
