@@ -16,6 +16,11 @@ module PactBroker
 
       dataset_module do
         include PactBroker::Repositories::Helpers
+
+        def pact_version_sha sha
+          where(sha: sha)
+        end
+
       end
 
       def name

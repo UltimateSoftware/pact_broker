@@ -12,7 +12,6 @@ Sequel.migration do
       index [:pact_version_id, :number], unique: true
       String :logs
       String :logsID
-      String :revision
     end
   end
 end

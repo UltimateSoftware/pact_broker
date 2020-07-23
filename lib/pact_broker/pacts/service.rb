@@ -28,6 +28,10 @@ module PactBroker
         pact_repository.find_latest_pacts
       end
 
+      def find_pact_by_pact_version_sha pact_version_sha
+        pact_repository.find_pact_by_pact_version_sha(pact_version_sha)
+      end
+
       def find_pact params
         pact_repository.find_pact(params[:consumer_name], params[:consumer_version_number], params[:provider_name], params[:pact_version_sha])
       end
