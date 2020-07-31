@@ -60,10 +60,6 @@ module PactBroker
         PactBroker::Domain::Verification.find(provider_version_id: version.id, pact_version_id: pact_version_id) if version
       end
 
-      def find_by_logs_id id
-        PactBroker::Domain::Verification.find(logsID: id)
-      end
-
       def find_latest_for_pact(pact)
         verification_repository.find_latest_for_pact(pact)
       end
