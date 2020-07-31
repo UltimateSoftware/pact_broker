@@ -23,10 +23,10 @@ module PactBroker
         end
 
         def resource_exists?
-          resource
+          !!resource_object
         end
 
-        def resource
+        def resource_object
           webhook
         end
 
@@ -49,7 +49,7 @@ module PactBroker
         end
 
         def to_json
-          Decorators::WebhookDecorator.new(webhook).to_json(user_options: { base_url: base_url })
+          Decorators::WebhookDecorator.new(webhook).to_json(decorator_options)
         end
 
         def delete_resource

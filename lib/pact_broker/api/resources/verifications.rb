@@ -28,10 +28,10 @@ module PactBroker
         end
 
         def resource_exists?
-          !!resource
+          !!resource_object
         end
 
-        def resource
+        def resource_object
           pact
         end
 
@@ -53,7 +53,7 @@ module PactBroker
 
         def from_json
           verification = verification_service.create(next_verification_number, params(symbolize_names: false), pact, webhook_options)
-          response.body = decorator_for(verification).to_json(user_options: { base_url: base_url })
+          response.body = decorator_for(verification).to_json(decorator_options)
           true
         end
 

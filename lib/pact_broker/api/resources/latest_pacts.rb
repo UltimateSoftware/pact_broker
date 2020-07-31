@@ -14,11 +14,19 @@ module PactBroker
         end
 
         def to_json
-          PactBroker::Api::Decorators::PactCollectionDecorator.new(pacts).to_json(user_options: { base_url: base_url })
+          PactBroker::Api::Decorators::PactCollectionDecorator.new(pacts).to_json(decorator_options)
         end
 
         def pacts
-          pact_service.find_latest_pacts
+          @pacts ||= pact_service.find_latest_pacts
+        end
+
+        def policy_name
+          :'pacts:pacts'
+        end
+
+        def policy_record
+          pacts
         end
       end
     end

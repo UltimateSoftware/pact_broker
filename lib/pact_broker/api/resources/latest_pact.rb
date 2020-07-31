@@ -21,10 +21,14 @@ module PactBroker
         end
 
         def resource_exists?
-          !!resource
+          !!pact
         end
 
-        def resource
+        def policy_name
+          :'pacts:pact'
+        end
+
+        def policy_record
           pact
         end
 

@@ -19,7 +19,11 @@ module PactBroker
           !!provider
         end
 
-        def resource
+        def policy_name
+          :'pacts:provider_pacts'
+        end
+
+        def policy_record
           provider
         end
 
