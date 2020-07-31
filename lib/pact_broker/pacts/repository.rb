@@ -292,6 +292,13 @@ module PactBroker
         query.latest.all.collect(&:to_domain_with_content)[0]
       end
 
+      def find_pact_by_pact_version_sha pact_version_sha
+        query = scope_for(PactVersion)
+                  .pact_version_sha(pact_version_sha)
+                  .limit(1)
+        query.collect(&:id)[0]
+      end
+
       def find_pact consumer_name, consumer_version, provider_name, pact_version_sha = nil
         query = if pact_version_sha
           scope_for(AllPactPublications)
