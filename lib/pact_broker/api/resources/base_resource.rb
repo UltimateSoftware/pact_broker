@@ -1,13 +1,9 @@
-require 'pact_broker/api/resources/default_base_resource'
-
-# Allow a previously required definition of the BaseResource to take precedence
+require 'pact_broker/configuration'
 
 module PactBroker
   module Api
     module Resources
-      if !defined?(BaseResource)
-        BaseResource = DefaultBaseResource
-      end
+      BaseResource = PactBroker.configuration.base_resource_class_factory.call
     end
   end
 end

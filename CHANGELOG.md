@@ -1,11 +1,17 @@
-<a name="v2.58.1"></a>
-### v2.58.1 (2020-07-12)
-
+<a name="v2.58.3"></a>
+### v2.58.3 (2020-07-25)
 
 #### Bug Fixes
 
-* add missing URL encoding in various URLs	 ([276094bc](/../../commit/276094bc))
+* correctly encode user entered data in attributes, Javascript, and HTML	 ([523980e2](/../../commit/523980e2))
 
+<a name="v2.58.2"></a>
+### v2.58.2 (2020-07-17)
+
+#### Bug Fixes
+
+* update CSP to allow badges to be loaded from shields.io	 ([a87e5274](/../../commit/a87e5274))
+* add missing URL encoding in various URLs	 ([276094bc](/../../commit/276094bc))
 
 <a name="v2.58.0"></a>
 ### v2.58.0 (2020-06-19)

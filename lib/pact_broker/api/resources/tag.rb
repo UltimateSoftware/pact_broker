@@ -27,15 +27,15 @@ module PactBroker
         end
 
         def resource_exists?
-          !!resource
+          !!resource_object
         end
 
-        def resource
+        def resource_object
           tag
         end
 
         def to_json
-          PactBroker::Api::Decorators::TagDecorator.new(tag).to_json(user_options: { base_url: base_url })
+          PactBroker::Api::Decorators::TagDecorator.new(tag).to_json(decorator_options)
         end
 
         def tag

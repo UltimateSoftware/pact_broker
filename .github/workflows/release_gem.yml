@@ -1,21 +1,29 @@
 name: Release gem
 
 on:
-  push:
-    tags:
-      - release
+  repository_dispatch:
+    types:
+      - release-triggered
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: pact-foundation/release-gem@v0.0.5
+    # - name: 'Wait for status checks'
+    #   id: wait-for-status-checks
+    #   uses: "WyriHaximus/github-action-wait-for-status@v2"
+    #   with:
+    #     checkInterval: 15
+    #   env:
+    #     GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: pact-foundation/release-gem@v0.0.11
       env:
         GEM_HOST_API_KEY: '${{ secrets.RUBYGEMS_API_KEY }}'
         GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        INCREMENT: '${{ github.event.client_payload.increment }}'
     # - name: Trigger release of pact-cli Docker image
     #   uses: peter-evans/repository-dispatch@v1
     #   with:

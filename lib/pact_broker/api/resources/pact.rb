@@ -50,10 +50,14 @@ module PactBroker
         end
 
         def resource_exists?
-          !!resource
+          !!pact
         end
 
-        def resource
+        def resource_object
+          pact
+        end
+
+        def policy_resource
           pact
         end
 

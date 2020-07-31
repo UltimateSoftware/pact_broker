@@ -1,3 +1,5 @@
+require 'pact_broker/configuration'
+
 module PactBroker
   class DefaultPolicy
     def initialize(current_user, resource)
@@ -41,11 +43,11 @@ module PactBroker
     end
   end
 
-  def self.policy!(resource)
-    DefaultPolicy.new(nil, resource)
+  def self.policy!(*args)
+    PactBroker.configuration.policy_builder.call(*args)
   end
 
-  def self.policy_scope!(scope)
-    scope
+  def self.policy_scope!(*args)
+    PactBroker.configuration.policy_scope_builder.call(*args)
   end
 end
