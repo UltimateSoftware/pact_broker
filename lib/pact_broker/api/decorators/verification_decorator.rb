@@ -15,6 +15,7 @@ module PactBroker
         property :execution_date, as: :verificationDate
         property :build_url, as: :buildUrl
         property :test_results, as: :testResults
+        property :logs, as: :logs
 
         link :self do | options |
           {
