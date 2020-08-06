@@ -16,8 +16,6 @@ module PactBroker
         property :build_url, as: :buildUrl
         property :test_results, as: :testResults
         property :logs, as: :logs
-        property :logsID, as: :logsID
-        property :revision, as: :revision
 
         link :self do | options |
           {
